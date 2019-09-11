@@ -24,6 +24,9 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @product.redirect_to |format| do
+      format.html {render :show}
+    end
   end
 
   def data
